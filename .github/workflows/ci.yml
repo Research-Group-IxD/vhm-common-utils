@@ -27,9 +27,9 @@ jobs:
         shell: bash
 
       - name: Install dependencies
-        run: ~/.cargo/bin/uv pip install .[test]
+        run: ~/bin/uv pip install .[test]
         shell: bash
 
       - name: Test with pytest
-        run: ~/.cargo/bin/uv run pytest
+        run: ~/bin/uv run pytest
         shell: bash
