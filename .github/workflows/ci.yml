@@ -26,6 +26,10 @@ jobs:
         run: curl -LsSf https://astral.sh/uv/install.sh | sh
         shell: bash
 
+      - name: Venv
+        run: uv venv
+        shell: bash
+
       - name: Install dependencies
         run: ~/.local/bin/uv pip install .[test]
         shell: bash
