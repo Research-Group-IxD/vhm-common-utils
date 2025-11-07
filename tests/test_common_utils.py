@@ -300,3 +300,16 @@ class TestEdgeCasesAndWeirdStuff:
         assert response.reason is None
         assert response.detail is None
 
+
+class TestIntentionallyFailing:
+    """This test intentionally fails to demonstrate CI failure handling 🚨"""
+    
+    def test_embedding_should_have_minimum_dimension(self):
+        """This test will fail - embeddings should have at least 128 dimensions"""
+        text = "Test text for embedding"
+        embedding = get_embedding(text)
+        
+        # This assertion will fail because the placeholder returns [0.1, 0.2, 0.3]
+        # which only has 3 dimensions, not 128
+        assert len(embedding) >= 128, f"Expected at least 128 dimensions, got {len(embedding)}"
+
